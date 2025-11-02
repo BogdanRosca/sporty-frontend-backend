@@ -1,11 +1,14 @@
 import utils.breeds
-from config.config import LABRADOR_ID
+from tests.base_test import BaseTest
 
-def test_get_all_breeds(auth_headers):
-    response = utils.breeds.get_breeds(auth_headers)
-    print(response)
+class TestGetDogBreeds(BaseTest):
+    """Test suite for getting dog breeds details"""
+
+    def test_get_all_breeds(self):
+        response = utils.breeds.get_breeds(self.auth_headers)
+        print(response)
 
 
-def test_get_specific_breed(auth_headers):
-    response = utils.breeds.get_breed(auth_headers, LABRADOR_ID)
-    print(response)
+    def test_get_specific_breed(self):
+        response = utils.breeds.get_breed(self.auth_headers, self.breed_id)
+        print(response)

@@ -1,0 +1,23 @@
+{
+    "bred_for": "Water retrieving",
+    "breed_group": "Sporting",
+    "height": {
+        "imperial": "21.5 - 24.5",
+        "metric": "55 - 62"
+    },
+    "id": 149,
+    "image": {
+        "id": "B1uW7l5VX",
+        "width": 992,
+        "height": 667,
+        "url": "https://cdn2.thedogapi.com/images/B1uW7l5VX.jpg"
+    },
+    "life_span": "10 - 13 years",
+    "name": "Labrador Retriever",
+    "reference_image_id": "B1uW7l5VX",
+    "temperament": "Kind, Outgoing, Agile, Gentle, Intelligent, Trusting, Even Tempered",
+    "weight": {
+        "imperial": "55 - 80",
+        "metric": "25 - 36"
+    }
+}
