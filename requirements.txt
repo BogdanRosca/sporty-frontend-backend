@@ -1,0 +1,6 @@
+allure-pytest==2.15.0
+pytest==8.4.2
+python-dotenv==1.2.1
+pytest-retry==1.7.0
+requests==2.32.5
+xdist==0.0.2
