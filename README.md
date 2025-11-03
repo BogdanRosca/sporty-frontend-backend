@@ -37,16 +37,22 @@ Note: Some features of this API (eg. adding favourite image), require authentica
 ```
 
 ## Setup
-1. Install dependencies:
+1. [Optional] Create virtual environment
+   ```
+   python -m venv /path/to/new/virtual/environment
+   source  /path/to/new/virtual/environment/bin/activate
+   ```
+
+2. Install dependencies:
    ```bash
    pip install -r requirements.txt
    ```
 
-2. Configure environment variables in `.env` file
+3. Add your API_KEY in a new `.env` file following pattern in .env.example
 
-3. Run tests:
+4. Run tests:
    ```bash
-   pytest --alluredir=allure_results -v
+   pytest 
    ```
 
 ## Test Cases
@@ -71,3 +77,16 @@ Note: Some features of this API (eg. adding favourite image), require authentica
 - All test cases are validating the expected status code 
 - Test cases where a more complex object is returned (eg. test_get_specific_breed) are validating response schema 
 - Test cases where an object is returned validate the consistency of data against expected values (eg. test_get_one_existing_faviourite)
+
+
+## Test execution recording
+![Test Execution Demo](Screen%20Recording%202025-11-03%20at%2018.06.17.gif)
+
+## Using AI
+During coding tasks, I have used Github copilot integration in VS Code and Claude Sonnet 4 model for:
+- Understanding various wais in running fixtures 
+- Generate draft structure for README file
+
+During merge I have used Github Copilot for:
+- PR summary 
+- Code review
