@@ -17,7 +17,7 @@ class TestGetFavouriteImage(BaseTest):
             utils.favourites.remove_favourite(favourite["id"])
 
     def test_get_favourite_no_auth(self):
-        """Test getting favourites images without autentication"""
+        """Test getting favourites images without authentication"""
         response = utils.favourites.get_favourites_no_auth()
         assert response.status_code == 401
         assert "AUTHENTICATION_ERROR" in response.text
