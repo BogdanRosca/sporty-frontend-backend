@@ -5,7 +5,7 @@ import pytest
 import utils.favourites
 
 
-@allure.suite("v1/faviourits")
+@allure.suite("v1/favourites")
 class TestGetFavouriteImage(BaseTest):
     """Test suite for getting favourite breeds """
     
