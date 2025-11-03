@@ -9,7 +9,7 @@ class TestGetDogBreeds(BaseTest):
 
     def test_get_all_breeds(self):
         """Test getting all dog breeds with details"""
-        response = utils.breeds.get_breeds(self.auth_headers) 
+        response = utils.breeds.get_breeds()
         
         assert response.status_code == 200
 
@@ -21,7 +21,7 @@ class TestGetDogBreeds(BaseTest):
 
     def test_get_specific_breed(self):
         """Test getting specific dog breed with details"""
-        response = utils.breeds.get_breed(self.auth_headers, self.labrador_breed_id)
+        response = utils.breeds.get_breed(self.labrador_breed_id)
         
         assert response.status_code == 200
         response_json = response.json()
@@ -39,7 +39,7 @@ class TestGetDogBreeds(BaseTest):
 
     def test_get_unexisting_breed(self):
         """Test getting unexisting dog breed"""
-        response = utils.breeds.get_breed(self.auth_headers, self.unexisting_breed_id)
+        response = utils.breeds.get_breed(self.unexisting_breed_id)
 
         assert response.status_code == 400
         assert response.text == "INVALID_DATA"

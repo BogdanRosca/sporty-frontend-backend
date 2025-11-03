@@ -55,6 +55,10 @@ Note: Some features of this API (eg. adding favourite image), require authentica
    pytest 
    ```
 
+4. Run in CI:
+   - Tests are automatically run against PRs (when open and upon commit)
+   - Tests can be also manually triggered from Run Tests workflow ( under Actions)
+
 ## Test Cases
 | Test Name | Description | Test Suite | File Location |
 |-----------|-------------|------------|---------------|
