@@ -70,4 +70,4 @@ Note: Some features of this API (eg. adding favourite image), require authentica
 ## Test validations
 - All test cases are validating the expected status code 
 - Test cases where a more complex object is returned (eg. test_get_specific_breed) are validating response schema 
-- Test cases where an object is returned validate the consistency of data against exepected values (eg. test_get_one_existing_faviourite)
+- Test cases where an object is returned validate the consistency of data against expected values (eg. test_get_one_existing_faviourite)
