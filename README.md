@@ -10,7 +10,7 @@ Note: Some features of this API (eg. adding favourite image), requiere authenitc
 - Failed test cases are retried, through pytest-retry library, a maximum of 3 times (value configurable in pytest.ini)
 - Tests execution is generating Allure results, and a report can be built using `allure serve allure_results`.
 
-![alt text](image.png)
+![alt text](allure.png)
 
 ## Project Structure
 ```
