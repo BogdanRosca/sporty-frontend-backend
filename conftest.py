@@ -1,14 +1,7 @@
-from dotenv import load_dotenv
-import pytest
-import os
+import sys
+from pathlib import Path
 
-load_dotenv()
-
-@pytest.fixture(scope="session")
-def auth_headers():
-    """Fixture that provides the API key for all tests."""
-    headers = {
-        "x-api-key": os.getenv('API_KEY'),
-        "Content-Type": "application/json"
-    }
-    return headers
+# Add the project root directory to Python path
+project_root = Path(__file__).parent
+if str(project_root) not in sys.path:
+    sys.path.insert(0, str(project_root))

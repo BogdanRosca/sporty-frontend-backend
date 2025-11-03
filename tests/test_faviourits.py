@@ -12,19 +12,19 @@ class TestGetFavouriteImage(BaseTest):
     @pytest.fixture(autouse=True)
     def start_clean(self):
         """Fixture that deletes all existing favourites at start of each test"""
-        existing_favourits = utils.favourites.get_favourites(self.auth_headers).json()
+        existing_favourits = utils.favourites.get_favourites().json()
         for favourite in existing_favourits:
-            utils.favourites.remove_favourite(favourite["id"], self.auth_headers)
+            utils.favourites.remove_favourite(favourite["id"])
 
     def test_get_favourite_no_auth(self):
         """Test getting favourites images without autentication"""
-        response = utils.favourites.get_favourites()
+        response = utils.favourites.get_favourites_no_auth()
         assert response.status_code == 401
         assert "AUTHENTICATION_ERROR" in response.text
 
     def test_get_favourite_not_created(self):
         """Test getting favourites images without creating first"""
-        response = utils.favourites.get_favourites(self.auth_headers)
+        response = utils.favourites.get_favourites()
         assert response.status_code == 200
         assert response.json() == []
 
@@ -32,10 +32,10 @@ class TestGetFavouriteImage(BaseTest):
         """Test getting favourites images after creating faviourit"""
         IMAGE_ID = self.image_ids[0]
 
-        create_response = utils.favourites.save_favourite(IMAGE_ID, self.auth_headers)
+        create_response = utils.favourites.save_favourite(IMAGE_ID)
         assert create_response.status_code == 200
         
-        response = utils.favourites.get_favourites(self.auth_headers)
+        response = utils.favourites.get_favourites()
         assert response.status_code == 200
 
         response_json = response.json()[0]
@@ -50,13 +50,13 @@ class TestGetFavouriteImage(BaseTest):
         IMAGE_ID_1 = self.image_ids[0]
         IMAGE_ID_2 = self.image_ids[1]
         
-        create_response = utils.favourites.save_favourite(IMAGE_ID_1, self.auth_headers)
+        create_response = utils.favourites.save_favourite(IMAGE_ID_1)
         assert create_response.status_code == 200
 
-        create_response = utils.favourites.save_favourite(IMAGE_ID_2, self.auth_headers)
+        create_response = utils.favourites.save_favourite(IMAGE_ID_2)
         assert create_response.status_code == 200
         
-        response = utils.favourites.get_favourites(self.auth_headers)
+        response = utils.favourites.get_favourites()
         assert response.status_code == 200
 
         response_json = response.json()[0]
@@ -75,14 +75,14 @@ class TestGetFavouriteImage(BaseTest):
 
     def test_create_favourite_no_body(self):
         """Test adding a favourites image without body"""
-        response = utils.favourites.save_favourite(None, self.auth_headers)
+        response = utils.favourites.save_favourite(None)
         assert response.status_code == 400
         assert response.text == '"image_id" is required'
 
     def test_create_favourite(self):
         """Test adding a favourites image"""
         IMAGE_ID = self.image_ids[0]
-        response = utils.favourites.save_favourite(IMAGE_ID, self.auth_headers)
+        response = utils.favourites.save_favourite(IMAGE_ID)
         assert response.status_code == 200
 
         response_json = response.json()
@@ -92,11 +92,11 @@ class TestGetFavouriteImage(BaseTest):
         """Test removing a favourite image"""
         IMAGE_ID = self.image_ids[0]
 
-        response = utils.favourites.save_favourite(IMAGE_ID, self.auth_headers)
+        response = utils.favourites.save_favourite(IMAGE_ID)
         assert response.status_code == 200
         new_favourite_id = response.json()["id"]
 
-        response = utils.favourites.remove_favourite(new_favourite_id, self.auth_headers)
+        response = utils.favourites.remove_favourite(new_favourite_id)
         assert response.status_code == 200
 
         response_json = response.json()
