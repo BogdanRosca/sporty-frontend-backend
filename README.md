@@ -3,7 +3,7 @@
 ## Scope
 Scope of this project is to validate the https://api.thedogapi.com API. Full documentation of this API can be found at https://docs.thedogapi.com/docs/intro.
 
-Note: Some features of this API (eg. adding favourite image), requiere authenitcation through an API_KEY. Please create an accout to get yours and update the .env file based on the example.
+Note: Some features of this API (eg. adding favourite image), require authentication through an API_KEY. Please create an account to get yours and update the .env file based on the example.
 
 ## Technical notes
 - Test cases are executed in parallel, through pytest-xdist library, on 10 maximum workers (value configurable in pytest.ini)
