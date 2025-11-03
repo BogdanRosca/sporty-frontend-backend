@@ -11,7 +11,7 @@ class TestGetFavouriteImage(BaseTest):
     
     @pytest.fixture(autouse=True)
     def start_clean(self):
-        """Fixture that deletes all exisring favourites at start of each test"""
+        """Fixture that deletes all existing favourites at start of each test"""
         existing_favourits = utils.favourites.get_favourites(self.auth_headers).json()
         for favourite in existing_favourits:
             utils.favourites.remove_favourite(favourite["id"], self.auth_headers)
