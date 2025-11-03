@@ -29,7 +29,7 @@ class TestGetFavouriteImage(BaseTest):
         assert response.json() == []
 
     def test_get_one_existing_faviourite(self):
-        """Test getting favourites images after creating faviourit"""
+        """Test getting favourites images after creating favourite"""
         IMAGE_ID = self.image_ids[0]
 
         create_response = utils.favourites.save_favourite(IMAGE_ID)
