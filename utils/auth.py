@@ -2,7 +2,9 @@
 import os
 from dotenv import load_dotenv
 
-load_dotenv()
+def init_auth_env():
+    """Load environment variables from a .env file."""
+    load_dotenv()
 
 def get_auth_headers():
     """Get authentication headers for API requests"""
