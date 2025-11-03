@@ -1,8 +1,8 @@
-from tests.base_test import BaseTest
 from schemas.favourites import FavouriteImage
+from tests.base_test import BaseTest
 import allure 
-import utils.favourites
 import pytest
+import utils.favourites
 
 
 @allure.suite("v1/faviourits")

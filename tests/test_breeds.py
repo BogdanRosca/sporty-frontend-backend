@@ -38,7 +38,7 @@ class TestGetDogBreeds(BaseTest):
         assert response_json["weight"]["metric"] == "25 - 36"
 
     def test_get_unexisting_breed(self):
-        """Test getting specific dog breed with details"""
+        """Test getting unexisting dog breed"""
         response = utils.breeds.get_breed(self.auth_headers, self.unexisting_breed_id)
 
         assert response.status_code == 400
