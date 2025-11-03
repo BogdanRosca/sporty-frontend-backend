@@ -5,9 +5,10 @@ import pytest
 from config.config import LABRADOR_ID, IMAGE_IDS, USER_ID
 from utils.test import load_test_data
 
+
 class BaseTest:
     """Base class for all test classes with common setup and utilities"""
-    
+
     @pytest.fixture(autouse=True)
     def setup_test_data(self):
         """Load common test data for all tests"""
@@ -16,4 +17,3 @@ class BaseTest:
         self.labrador_response = load_test_data('labrador.json')
         self.image_ids = IMAGE_IDS
         self.user_id = USER_ID
-

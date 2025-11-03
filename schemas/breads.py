@@ -1,18 +1,22 @@
 from pydantic import BaseModel
 
+
 class Weight(BaseModel):
     imperial: str
     metric: str
 
+
 class Height(BaseModel):
     imperial: str
     metric: str
+
 
 class Image(BaseModel):
     id: str
     width: int
     height: int
     url: str
+
 
 class DogBreedDetails(BaseModel):
     weight: Weight
