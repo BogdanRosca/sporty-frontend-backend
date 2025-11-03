@@ -89,7 +89,7 @@ class TestGetFavouriteImage(BaseTest):
         assert response_json["message"] == "SUCCESS"
         
     def test_delete_favourite(self):
-        """Test removing a faviourit image"""
+        """Test removing a favourite image"""
         IMAGE_ID = self.image_ids[0]
 
         response = utils.favourites.save_favourite(IMAGE_ID, self.auth_headers)
