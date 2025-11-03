@@ -15,3 +15,7 @@ ENDPOINTS = {
 }
 
 LABRADOR_ID = 149
+
+IMAGE_ID = 'BJa4kxc4X'
+
+USER_ID = 'h5qfir'

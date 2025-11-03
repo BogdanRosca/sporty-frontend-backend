@@ -8,6 +8,7 @@ load_dotenv()
 def auth_headers():
     """Fixture that provides the API key for all tests."""
     headers = {
-        "x-api-key": os.getenv('API_KEY')
+        "x-api-key": os.getenv('API_KEY'),
+        "Content-Type": "application/json"
     }
     return headers
