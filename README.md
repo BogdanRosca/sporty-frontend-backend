@@ -24,7 +24,7 @@ Note: Some features of this API (eg. adding favourite image), require authentica
 ├── tests/                 # Test cases
 │   ├── base_test.py       # Base test class
 │   ├── test_breeds.py      
-│   └── test_faviourits.py  
+│   └── test_favourites.py  
 ├── utils/                 # Utility functions
 │   ├── breeds.py           
 │   ├── favourites.py       
@@ -55,13 +55,13 @@ Note: Some features of this API (eg. adding favourite image), require authentica
 | `test_get_all_breeds` | Test getting all dog breeds with details | v1/breeds | `tests/test_breeds.py` |
 | `test_get_specific_breed` | Test getting specific dog breed with details | v1/breeds | `tests/test_breeds.py` |
 | `test_get_unexisting_breed` | Test getting unexisting dog breed | v1/breeds | `tests/test_breeds.py` |
-| `test_get_favourite_no_auth` | Test getting faviourits images without autentication | v1/faviourits | `tests/test_faviourits.py` |
-| `test_get_favourite_not_created` | Test getting faviourits images without creating first | v1/faviourits | `tests/test_faviourits.py` |
-| `test_get_one_existing_faviourite` | Test getting faviourits images after creating one favourite | v1/faviourits | `tests/test_faviourits.py` |
-| `test_get_multiple_existing_faviourite` | Test getting faviourits images after creating multiple faviourits | v1/faviourits | `tests/test_faviourits.py` |
-| `test_create_favourite_no_body` | Test adding a faviourits image without body | v1/faviourits | `tests/test_faviourits.py` |
-| `test_create_favourite` | Test adding a faviourits image | v1/faviourits | `tests/test_faviourits.py` |
-| `test_delete_favourite` | Test removing a favourite image | v1/faviourits | `tests/test_faviourits.py` |
+| `test_get_favourite_no_auth` | Test getting favourites images without autentication | v1/favourites | `tests/test_favourites.py` |
+| `test_get_favourite_not_created` | Test getting favourites images without creating first | v1/favourites | `tests/test_favourites.py` |
+| `test_get_one_existing_faviourite` | Test getting favourites images after creating one favourite | v1/favourites | `tests/test_favourites.py` |
+| `test_get_multiple_existing_faviourite` | Test getting favourites images after creating multiple favourites | v1/favourites | `tests/test_favourites.py` |
+| `test_create_favourite_no_body` | Test adding a favourites image without body | v1/favourites | `tests/test_favourites.py` |
+| `test_create_favourite` | Test adding a favourites image | v1/favourites | `tests/test_favourites.py` |
+| `test_delete_favourite` | Test removing a faviourit image | v1/favourites | `tests/test_favourites.py` |
 
 ### Test Coverage Summary
 - **Dog Breeds API Tests (3 tests)**: Cover getting all breeds, specific breed details, and error handling for non-existent breeds

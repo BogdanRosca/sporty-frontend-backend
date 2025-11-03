@@ -17,19 +17,19 @@ class TestGetFavouriteImage(BaseTest):
             utils.favourites.remove_favourite(favourite["id"], self.auth_headers)
 
     def test_get_favourite_no_auth(self):
-        """Test getting favourites images without authentication"""
+        """Test getting favourites images without autentication"""
         response = utils.favourites.get_favourites()
         assert response.status_code == 401
         assert "AUTHENTICATION_ERROR" in response.text
 
     def test_get_favourite_not_created(self):
-        """Test getting faviourits images without creating first"""
+        """Test getting favourites images without creating first"""
         response = utils.favourites.get_favourites(self.auth_headers)
         assert response.status_code == 200
         assert response.json() == []
 
     def test_get_one_existing_faviourite(self):
-        """Test getting faviourits images after creating faviourit"""
+        """Test getting favourites images after creating faviourit"""
         IMAGE_ID = self.image_ids[0]
 
         create_response = utils.favourites.save_favourite(IMAGE_ID, self.auth_headers)
@@ -45,8 +45,8 @@ class TestGetFavouriteImage(BaseTest):
         assert response_json["image"]["id"] == IMAGE_ID
         assert response_json["image"]["url"] == f"https://cdn2.thedogapi.com/images/{IMAGE_ID}.jpg" 
 
-    def test_get_multiple_existing_faviourite(self):
-        """Test getting faviourits images after creating faviourit"""
+    def test_get_multiple_existing_favourites(self):
+        """Test getting favourites images after creating favourites"""
         IMAGE_ID_1 = self.image_ids[0]
         IMAGE_ID_2 = self.image_ids[1]
         
@@ -80,7 +80,7 @@ class TestGetFavouriteImage(BaseTest):
         assert response.text == '"image_id" is required'
 
     def test_create_favourite(self):
-        """Test adding a faviourits image"""
+        """Test adding a favourites image"""
         IMAGE_ID = self.image_ids[0]
         response = utils.favourites.save_favourite(IMAGE_ID, self.auth_headers)
         assert response.status_code == 200
