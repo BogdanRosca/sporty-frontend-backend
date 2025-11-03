@@ -9,6 +9,7 @@ Note: Some features of this API (eg. adding favourite image), require authentica
 - Test cases are executed in parallel, through pytest-xdist library, on 10 maximum workers (value configurable in pytest.ini)
 - Failed test cases are retried, through pytest-retry library, a maximum of 3 times (value configurable in pytest.ini)
 - Tests execution is generating Allure results, and a report can be built using `allure serve allure_results`.
+- For code styles consistency Flake8 was installed and the code manually scanned
 
 ![alt text](allure.png)
 
@@ -90,6 +91,7 @@ Note: Some features of this API (eg. adding favourite image), require authentica
 During coding tasks, I have used Github copilot integration in VS Code and Claude Sonnet 4 model for:
 - Understanding various wais in running fixtures 
 - Generate draft structure for README file
+- Fix some of the Flake8 reported errors
 
 During merge I have used Github Copilot for:
 - PR summary 

@@ -1,10 +1,11 @@
 from pydantic import BaseModel
-from datetime import datetime
 from typing import Optional
+
 
 class Image(BaseModel):
     id: str
     url: str
+
 
 class FavouriteImage(BaseModel):
     id: int

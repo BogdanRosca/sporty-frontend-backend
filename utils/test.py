@@ -1,5 +1,6 @@
 import json
 
+
 def load_test_data(filename):
     """Load test data from JSON file"""
     try:
