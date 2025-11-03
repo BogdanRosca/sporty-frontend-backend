@@ -16,6 +16,9 @@ ENDPOINTS = {
 
 LABRADOR_ID = 149
 
-IMAGE_ID = 'BJa4kxc4X'
+IMAGE_IDS = [
+    'BJa4kxc4X', 
+    'rkiByec47'
+]
 
 USER_ID = 'h5qfir'

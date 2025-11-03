@@ -28,9 +28,11 @@ class TestGetFavouriteImage(BaseTest):
         assert response.status_code == 200
         assert response.json() == []
 
-    def test_get_faviourite_one_existing(self):
+    def test_get_one_existing_faviourite(self):
         """Test getting faviourits images after creating faviourit"""
-        create_response = utils.favourites.save_favourite(self.image_id, self.auth_headers)
+        IMAGE_ID = self.image_ids[0]
+
+        create_response = utils.favourites.save_favourite(IMAGE_ID, self.auth_headers)
         assert create_response.status_code == 200
         
         response = utils.favourites.get_favourites(self.auth_headers)
@@ -39,9 +41,37 @@ class TestGetFavouriteImage(BaseTest):
         response_json = response.json()[0]
         FavouriteImage(**response_json)
         assert response_json["user_id"] == self.user_id
-        assert response_json["image_id"] == self.image_id
-        assert response_json["image"]["id"] == self.image_id
-        assert response_json["image"]["url"] == f"https://cdn2.thedogapi.com/images/{self.image_id}.jpg" 
+        assert response_json["image_id"] == IMAGE_ID
+        assert response_json["image"]["id"] == IMAGE_ID
+        assert response_json["image"]["url"] == f"https://cdn2.thedogapi.com/images/{IMAGE_ID}.jpg" 
+
+    def test_get_multiple_existing_faviourite(self):
+        """Test getting faviourits images after creating faviourit"""
+        IMAGE_ID_1 = self.image_ids[0]
+        IMAGE_ID_2 = self.image_ids[1]
+        
+        create_response = utils.favourites.save_favourite(IMAGE_ID_1, self.auth_headers)
+        assert create_response.status_code == 200
+
+        create_response = utils.favourites.save_favourite(IMAGE_ID_2, self.auth_headers)
+        assert create_response.status_code == 200
+        
+        response = utils.favourites.get_favourites(self.auth_headers)
+        assert response.status_code == 200
+
+        response_json = response.json()[0]
+        FavouriteImage(**response_json)
+        assert response_json["user_id"] == self.user_id
+        assert response_json["image_id"] == IMAGE_ID_1
+        assert response_json["image"]["id"] == IMAGE_ID_1
+        assert response_json["image"]["url"] == f"https://cdn2.thedogapi.com/images/{IMAGE_ID_1}.jpg" 
+
+        response_json = response.json()[1]
+        FavouriteImage(**response_json)
+        assert response_json["user_id"] == self.user_id
+        assert response_json["image_id"] == IMAGE_ID_2
+        assert response_json["image"]["id"] == IMAGE_ID_2
+        assert response_json["image"]["url"] == f"https://cdn2.thedogapi.com/images/{IMAGE_ID_2}.jpg" 
 
     def test_create_favourite_no_body(self):
         """Test adding a faviourits image without body"""
@@ -51,7 +81,8 @@ class TestGetFavouriteImage(BaseTest):
 
     def test_create_favourite(self):
         """Test adding a faviourits image"""
-        response = utils.favourites.save_favourite(self.image_id, self.auth_headers)
+        IMAGE_ID = self.image_ids[0]
+        response = utils.favourites.save_favourite(IMAGE_ID, self.auth_headers)
         assert response.status_code == 200
 
         response_json = response.json()
@@ -59,11 +90,13 @@ class TestGetFavouriteImage(BaseTest):
         
     def test_delete_favourite(self):
         """Test removing a faviourit image"""
-        response = utils.favourites.save_favourite(self.image_id, self.auth_headers)
-        assert response.status_code == 200
-        id = response.json()["id"]
+        IMAGE_ID = self.image_ids[0]
 
-        response = utils.favourites.remove_favourite(id, self.auth_headers)
+        response = utils.favourites.save_favourite(IMAGE_ID, self.auth_headers)
+        assert response.status_code == 200
+        new_favourite_id = response.json()["id"]
+
+        response = utils.favourites.remove_favourite(new_favourite_id, self.auth_headers)
         assert response.status_code == 200
 
         response_json = response.json()

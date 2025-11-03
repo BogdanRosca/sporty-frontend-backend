@@ -2,7 +2,7 @@
 Base test class providing common functionality for all test classes
 """
 import pytest
-from config.config import LABRADOR_ID, IMAGE_ID, USER_ID
+from config.config import LABRADOR_ID, IMAGE_IDS, USER_ID
 from utils.test import load_test_data
 
 class BaseTest:
@@ -15,6 +15,6 @@ class BaseTest:
         self.unexisting_breed_id = 1234
         self.labrador_response = load_test_data('labrador.json')
         self.auth_headers = auth_headers
-        self.image_id = IMAGE_ID
+        self.image_ids = IMAGE_IDS
         self.user_id = USER_ID
 

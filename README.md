@@ -57,7 +57,8 @@ Note: Some features of this API (eg. adding favourite image), requiere authenitc
 | `test_get_unexisting_breed` | Test getting unexisting dog breed | v1/breeds | `tests/test_breeds.py` |
 | `test_get_favourite_no_auth` | Test getting faviourits images without autentication | v1/faviourits | `tests/test_faviourits.py` |
 | `test_get_favourite_not_created` | Test getting faviourits images without creating first | v1/faviourits | `tests/test_faviourits.py` |
-| `test_get_faviourite_one_existing` | Test getting faviourits images after creating faviourit | v1/faviourits | `tests/test_faviourits.py` |
+| `test_get_one_existing_faviourite` | Test getting faviourits images after creating one favourite | v1/faviourits | `tests/test_faviourits.py` |
+| `test_get_multiple_existing_faviourite` | Test getting faviourits images after creating multiple faviourits | v1/faviourits | `tests/test_faviourits.py` |
 | `test_create_favourite_no_body` | Test adding a faviourits image without body | v1/faviourits | `tests/test_faviourits.py` |
 | `test_create_favourite` | Test adding a faviourits image | v1/faviourits | `tests/test_faviourits.py` |
 | `test_delete_favourite` | Test removing a faviourit image | v1/faviourits | `tests/test_faviourits.py` |
