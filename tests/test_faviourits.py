@@ -74,7 +74,7 @@ class TestGetFavouriteImage(BaseTest):
         assert response_json["image"]["url"] == f"https://cdn2.thedogapi.com/images/{IMAGE_ID_2}.jpg" 
 
     def test_create_favourite_no_body(self):
-        """Test adding a faviourits image without body"""
+        """Test adding a favourites image without body"""
         response = utils.favourites.save_favourite(None, self.auth_headers)
         assert response.status_code == 400
         assert response.text == '"image_id" is required'
