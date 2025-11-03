@@ -61,7 +61,7 @@ Note: Some features of this API (eg. adding favourite image), require authentica
 | `test_get_multiple_existing_faviourite` | Test getting faviourits images after creating multiple faviourits | v1/faviourits | `tests/test_faviourits.py` |
 | `test_create_favourite_no_body` | Test adding a faviourits image without body | v1/faviourits | `tests/test_faviourits.py` |
 | `test_create_favourite` | Test adding a faviourits image | v1/faviourits | `tests/test_faviourits.py` |
-| `test_delete_favourite` | Test removing a faviourit image | v1/faviourits | `tests/test_faviourits.py` |
+| `test_delete_favourite` | Test removing a favourite image | v1/faviourits | `tests/test_faviourits.py` |
 
 ### Test Coverage Summary
 - **Dog Breeds API Tests (3 tests)**: Cover getting all breeds, specific breed details, and error handling for non-existent breeds
